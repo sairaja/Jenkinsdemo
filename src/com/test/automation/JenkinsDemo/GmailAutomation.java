@@ -1,7 +1,7 @@
 package com.test.automation.JenkinsDemo;
 
-import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -21,13 +21,15 @@ public class GmailAutomation {
 		
 	}
 	
+
+	
 	@Test
 	public void test() {
 	System.out.println("Finally done");
 	}
-
+	
 	public void exit()
 	{
-		driver.quit();
+		driver.close();
 	}
 }

@@ -61,6 +61,7 @@
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -73,7 +74,7 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-       <!-- <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+        <!--javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="JenkinsDemo.classpath"/>
         </javac-->
@@ -105,6 +106,22 @@
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
             <test name="com.test.automation.JenkinsDemo.GmailAutomation" todir="${junit.output.dir}"/>
+            <classpath refid="JenkinsDemo.classpath"/>
+        </junit>
+    </target>
+    <target name="Testsuite">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.test.automation.JenkinsDemo.Testsuite" todir="${junit.output.dir}"/>
+            <classpath refid="JenkinsDemo.classpath"/>
+        </junit>
+    </target>
+    <target name="AmazonAutomationTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.test.automation.JenkinsDemo.AmazonAutomationTest" todir="${junit.output.dir}"/>
             <classpath refid="JenkinsDemo.classpath"/>
         </junit>
     </target>

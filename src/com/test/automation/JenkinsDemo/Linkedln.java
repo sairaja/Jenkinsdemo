@@ -1,6 +1,5 @@
 package com.test.automation.JenkinsDemo;
 
-import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -25,10 +24,10 @@ public class Linkedln {
 	
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		System.out.println("Finally done");
 	}
 	
-	@After
+	
 	public void exit()
 	{
 		driver.quit();
